@@ -14,6 +14,16 @@ function getValueByRoute(item, route) {
   return result;
 }
 
+function findXMLElement(node, selector, attributeName) {
+  const found = node.querySelectorAll(selector);
+
+  return found.length
+    ? attributeName
+      ? found[0].attributes[attributeName].value
+      : found[0].textContent
+    : undefined;
+}
+
 export function parsePodcastsList(data) {
   if (!data) return;
 
@@ -30,4 +40,44 @@ export function parsePodcastsList(data) {
   });
 
   return items;
+}
+
+export function parsePodcastItem(data) {
+  if (!data?.results?.length) return;
+
+  const {
+    trackId,
+    artworkUrl600: artwork,
+    trackName,
+    feedUrl,
+    artistName,
+  } = data.results[0];
+
+  return {
+    trackId,
+    artwork,
+    trackName,
+    feedUrl,
+    artistName,
+  };
+}
+
+export function parseEpisodes(data) {
+  const doc = new DOMParser().parseFromString(data, "application/xml");
+  const items = doc.querySelectorAll("item");
+
+  let episodes = [];
+
+  items.forEach((item) => {
+    episodes.push({
+      guid: findXMLElement(item, "guid"),
+      title: findXMLElement(item, "title"),
+      date: findXMLElement(item, "pubDate"),
+      duration: findXMLElement(item, "duration"),
+      content: findXMLElement(item, "encoded"),
+      url: findXMLElement(item, "enclosure", "url"),
+    });
+  });
+
+  return episodes;
 }
