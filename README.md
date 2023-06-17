@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Aplicación para la visualización y reproducción de podcasts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio es una Single Page Application para la visualización y reproducción de podcasts musicales creada con [Create React App](https://github.com/facebook/create-react-app), que se ejecuta en el navegador e incorpora dos modos de ejecución: modo _development_ y modo _production_.
 
-## Available Scripts
+### Tecnologías utilizadas
 
-In the project directory, you can run:
+A fin de simplificar el proyecto he utilizado las minimas librerias posibles, con preferencia de aquellas que habitualmente se utilizan en proyectos React de este tipo. Así he optado por las siguientes:
 
-### `npm start`
+- react-router-dom
+- node-sass
+- date-fns
+- Axios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tecnologias de mejora
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Agregar más tests para garantizar la calidad.
+- Elaborar un diseño más cuidado.
+- Framework de css.
 
-### `npm test`
+No implementadas en este proyecto por la limitacion temporal.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Primeros pasos
 
-### `npm run build`
+### Clonar el repositorio
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para clonar el repositorio es necesario tener instalado [Git](http://git-scm.com), y después se debe ejecutar la siguiente instrucción:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/Florian759/podcasts
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instalar las dependencias
 
-### `npm run eject`
+Para instalar las dependencias es necesario tener instalado un gestor de dependencias como [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) y ejecutar la siguiente instrucción.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Ejecución de la aplicación
+Create React app predetermina dos modos de ejecución de la aplicación:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Modo _development_, los assets se sirven sin minimizar.
+- Modo _production_,  los assets se sirven concatenados y minimizados. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Modo _development_
 
-## Learn More
+Para ejecutar la aplicación en modo _development_ debemos ejecutar la siguiente orden:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para verlo en su navegador abra [http://localhost:3000](http://localhost:3000).
 
-### Code Splitting
+- La página se volverá a cargar cuando realice cambios.
+- Podrá ver errores de ejecutción en la consola.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Modo _production_
 
-### Analyzing the Bundle Size
+Para ejecutar la aplicación en modo _production_ debemos ejecutar la siguiente orden:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm build
+```
 
-### Making a Progressive Web App
+Empaqueta correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento. La compilación se minimiza y los nombres de archivo incluyen los assets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+¡La aplicación está lista para ser implementada!
