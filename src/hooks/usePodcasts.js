@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { getPodcasts } from "../services/podcastServices";
 import { parsePodcastsList } from "../utils/parsePodcasts";
@@ -6,6 +6,7 @@ import { useLoadingDispatch } from "../contexts/loadingContext";
 
 export const usePodcasts = () => {
   const [podcasts, setPodcasts] = useLocalStorage("podcasts");
+  const [podcastsFiltered, setPodcastsFiltered] = useState();
   const dispatch = useLoadingDispatch();
 
   useEffect(() => {
@@ -24,5 +25,16 @@ export const usePodcasts = () => {
       });
   }, [dispatch, podcasts, setPodcasts]);
 
-  return { list: podcasts || [] };
+  const handleFilter = (e) => {
+    const value = e.target?.value.toLowerCase();
+    const filtered = value
+      ? podcasts.filter((item) =>
+          `${item.name}${item.artist}`.toLowerCase().includes(value)
+        )
+      : undefined;
+
+    setPodcastsFiltered(filtered);
+  };
+
+  return { list: podcastsFiltered || podcasts || [], handleFilter };
 };
