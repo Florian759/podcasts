@@ -1,9 +1,9 @@
 import React from "react";
-import { usePodcastsList } from "../hooks/usePodcastList";
 import "./podcasts_page.scss";
+import { usePodcasts } from "../hooks/usePodcasts";
 
 export const PodcastPage = () => {
-  const { list } = usePodcastsList();
+  const { list } = usePodcasts();
 
   console.log(list);
 
