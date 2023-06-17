@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { usePodcast } from "../hooks/usePodcast";
+import { PodcastCover } from "../components/shared/PodcastCover";
 import "./podcast_page.scss";
 
 export const PodcastPage = () => {
@@ -8,11 +9,9 @@ export const PodcastPage = () => {
   const { state } = useLocation();
   const { episodes, ...podcastProps } = usePodcast(podcastId, state);
 
-  console.log(episodes, podcastProps);
-
   return (
     <div className="app-content podcast-page">
-
+      <PodcastCover {...podcastProps} />
     </div>
   );
 };
