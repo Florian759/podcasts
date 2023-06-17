@@ -1,0 +1,20 @@
+.episode-details {
+    background: #ffffff;
+    box-shadow: 2px 3px 5px grey;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    margin: 0rem 2rem 0rem 0rem;
+    max-width: 60%;
+    box-sizing: border-box;
+    &-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    &-content {
+      text-align: justify;
+    }
+    audio {
+        margin-top: 2rem;
+    }
+  }
+  
