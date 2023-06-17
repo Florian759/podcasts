@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid lightgrey;
+  margin-bottom: 2rem;
+
+  div {
+    display: flex;
+  }
+
+  h1 {
+    cursor: pointer;
+    color: rgb(45, 120, 170);
+    margin: 0.4rem;
+  }
+}
