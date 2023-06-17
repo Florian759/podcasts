@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 import { getPodcasts } from "../services/podcastServices";
 import { parsePodcastsList } from "../utils/parsePodcasts";
 
 export const usePodcastsList = () => {
-  const [podcastsList, setPodcastsList] = useState();
-  
+  const [podcastsList, setPodcastsList] = useLocalStorage("podcasts");
+
   useEffect(() => {
     if (podcastsList) return;
+
 
     getPodcasts()
       .then((response) => {
