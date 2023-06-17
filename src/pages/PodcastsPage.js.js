@@ -1,17 +1,21 @@
 import React from "react";
-import "./podcasts_page.scss";
+import { Podcast } from "../components/podcastsPage/Podcast";
 import { usePodcasts } from "../hooks/usePodcasts";
+import "./podcasts_page.scss";
 
-export const PodcastPage = () => {
+export const PodcastsPage = () => {
   const { list } = usePodcasts();
 
-  console.log(list);
-
   return (
-    <div className="app-content podcast-list-page">
-     
+    <div className="app-content podcasts-page">
+      
+      <section>
+        {list.map((item) => (
+          <Podcast key={item.id} {...item} />
+        ))}
+      </section>
     </div>
   );
 };
 
-export default PodcastPage;
+export default PodcastsPage;
