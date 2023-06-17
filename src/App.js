@@ -1,7 +1,8 @@
 import './app.css';
 import { Routes, Route } from "react-router-dom";
-import PodcastPage from './pages/PodcastsPage.js';
 import { Header } from './components/shared/Header';
+import PodcastsPage from './pages/PodcastsPage.js';
+import PodcastPage from './pages/PodcastPage';
 
 const App = () => {
 
@@ -10,7 +11,8 @@ const App = () => {
       <Header />
       
       <Routes>
-        <Route path="/" element={<PodcastPage />} />
+        <Route path="/" element={<PodcastsPage />} />
+        <Route path="/podcast/:podcastId" element={<PodcastPage />} />
       </Routes>
     </div>
   );
