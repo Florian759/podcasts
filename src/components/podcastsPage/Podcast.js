@@ -10,12 +10,12 @@ export const Podcast = (propsPodcast) => {
   };
 
   return (
-    <div>
-      <div className="podcast" onClick={handleClick} >
-        <div className="podcast-image-container">
+    <div className="podcast">
+      <div className="podcast-card" onClick={handleClick} >
+        <div className="podcast-card-image-container">
           <img src={image} alt="name" />
         </div>
-        <div className="podcast-content">
+        <div className="podcast-card-content">
           <p className="name">{name}</p>
           <p className="author">Author: {artist}</p>
         </div>
